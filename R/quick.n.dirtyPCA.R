@@ -14,8 +14,6 @@
 
 quick.n.dirtyPCA <- function(x)
 {
-  #require(ggfortify)
-
   to.PCA <- x
   row.names(to.PCA) <- to.PCA[,1]
   to.PCA <- to.PCA[,-1]
