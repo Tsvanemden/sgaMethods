@@ -1,0 +1,13 @@
+Package: sgaMethods
+Type: Package
+Title: Analyzes SGAs
+Version: 0.1.0
+Author: Thomas van Emden
+Maintainer: Thomas van Emden <tsvanemden@gmail.com>
+Description: This package helps you analyze SGAs from after you have taken pictures, till combining multiple screens
+License: What license is it under?
+Encoding: UTF-8
+LazyData: FLASE
+Imports:
+    LSD, gplots, RColorBrewer, plyr, ggplot2, ggfortify
+RoxygenNote: 6.0.1.9000
