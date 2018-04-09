@@ -38,5 +38,6 @@ quick.n.dirtyPCA <- function(x)
   print(ggplot2::autoplot(ir.pca, data = species, colour = 'labels'))
 }
 
+# added comment to check github functionality
 
 
