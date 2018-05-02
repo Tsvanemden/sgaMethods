@@ -4,8 +4,6 @@
 #'
 #' @param x
 #'
-#' @return NULL
-#'
 #' @examples batchNamer(screenTable, y)
 #'
 #' @export
@@ -82,7 +80,7 @@ batchNamer <- function(x, y)
       }
     })
 } else {
-    print("yeah..... so this ain't ready yet.. sorry about that")
-  }
+    #print("yeah..... so this ain't ready yet.. sorry about that")
+}
 }
 

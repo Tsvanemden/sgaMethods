@@ -1,0 +1,2 @@
+load("/Users/Thomas/sgaMethods/data/screen1.RData")
+load("/Users/Thomas/sgaMethods/data/smallscreen.RData")

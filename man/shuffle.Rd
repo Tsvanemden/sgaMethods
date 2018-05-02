@@ -4,7 +4,7 @@
 \alias{shuffle}
 \title{Reorders the dataframe containing your screen results}
 \usage{
-shuffle(x, order.df, to.order, nameOutput)
+shuffle(x, order.df, to.order)
 }
 \arguments{
 \item{x}{}
@@ -13,6 +13,6 @@ shuffle(x, order.df, to.order, nameOutput)
 Analyzes SGAs
 }
 \examples{
-shuffle(screen.df, order.df, to.order, nameOutput)
+shuffle(screen.df, order.df, to.order)
 
 }

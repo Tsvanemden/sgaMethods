@@ -12,16 +12,9 @@
 #'
 #' @export
 
-batchScreenAnalysis <- function(x, borderEffectCorrection, threshold = 100, plateMED_med2_limit = 2)
+batchScreenAnalysis <- function(x, borderEffectCorrection = TRUE, threshold = 100, plateMED_med2_limit = 2, size.col = "size")
 {
-  # Necessary packages
-  # require(LSD)
-  # require(gplots)
-  # require(RColorBrewer)
-  # require(plyr)
-
   datalist <- list()
-
   # Define the function
   f= function(y){
     # Extract necessary info from sample table
@@ -53,13 +46,12 @@ batchScreenAnalysis <- function(x, borderEffectCorrection, threshold = 100, plat
       for (j in 1:media)
       {
         plate_path <- paste(workingDir,"/", i, "med", j, ".txt", sep="")
-        data <- read.table(plate_path, header=F, fill = T) # note: header=F is different for HTgrid and spotsizer output
-        data <- subset(data, data$V1 != "C" & data$V1 != "S" & data$V1 != "S,C" )
-        data <- subset(data, select=-c(1:2, 4:5))
-        colnames (data)[1] <- paste0("med", j)
+        data <- read.table(plate_path, header=TRUE, fill = T, sep = ",") # note: header=F is different for HTgrid and spotsizer output
+        data <- as.data.frame(data[[size.col]])
+        colnames(data) <- paste0("med", j)
         data <- cbind(plate_info, data)
         column <- paste0("med", j)
-        if (borderEffectCorrection == "Y"){
+        if (borderEffectCorrection == TRUE){
           # Divide in Rings, nE indicates no Empties
           data_nE <- subset(data, data$mutID != "#N/A")
           ssMiddle <- subset(data, data$Ring >= 3)

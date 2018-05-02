@@ -6,11 +6,11 @@
 #'
 #' @return NULL
 #'
-#' @examples shuffle(screen.df, order.df, to.order, nameOutput)
+#' @examples shuffle(screen.df, order.df, to.order)
 #'
 #' @export
 
-shuffle <- function(x, order.df, to.order, nameOutput){
+shuffle <- function(x, order.df, to.order){
   # prepare df for shuffling
   shuffled.screen.df <- x
   row.names(shuffled.screen.df) <- shuffled.screen.df$gene
@@ -28,5 +28,4 @@ shuffle <- function(x, order.df, to.order, nameOutput){
   #q.order <- paste0(q$type,"_",q$media, "_", q$mutant,"_",q$assay_stress, "_", q$interest, "_", q$screenname )
   q.order <- apply(q, 1, paste, collapse = "_")
   to.print <- x[,c("gene", (q.order))]
-  assign(nameOutput, to.print, envir=globalenv())
 }

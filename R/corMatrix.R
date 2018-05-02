@@ -4,8 +4,6 @@
 #'
 #' @param x
 #'
-#' @return NULL
-#'
 #' @examples corMatrix(screenTable)
 #'
 #' @export

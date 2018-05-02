@@ -4,8 +4,8 @@
 \alias{batchScreenAnalysis}
 \title{Analyzes a single screen}
 \usage{
-batchScreenAnalysis(x, borderEffectCorrection, threshold = 100,
-  plateMED_med2_limit = 2)
+batchScreenAnalysis(x, borderEffectCorrection = TRUE, threshold = 100,
+  plateMED_med2_limit = 2, size.col = "size")
 }
 \arguments{
 \item{x}{}
