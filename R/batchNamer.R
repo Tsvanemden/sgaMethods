@@ -1,6 +1,6 @@
-#' @title Renames files as they come from the colonie size analyzer
+#' @title Renames files as they come from the colonie size analyzer software
 #'
-#' @description Analyzes SGAs
+#' @description Renames file that are produced by colonie size analyzer software so the names are compatible with sgaMethods
 #'
 #' @param x
 #'
@@ -13,11 +13,11 @@ batchNamer <- function(x, y)
   {apply(x,1,function(y)
     {
     # Extract necessary info from sample table
-    screenName = as.character(y["screen_name"])
+    screenName = as.character(y["screenName"])
     message(screenName)
-    libPlateNumb <- as.numeric(y["libPlateNumb"])
-    media <- as.numeric(y["types_media"])
-    workingDir <- as.character(y["location_results"])
+    libPlateNumb <- as.numeric(y["numberPlateInLibrary"])
+    media <- as.numeric(y["numberMedia"])
+    workingDir <- as.character(y["dataPath"])
 
     # Some settings we need for the upcoming loop
     filez <- list.files(path = workingDir) # This makes a list of all files in the gitData directory

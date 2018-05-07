@@ -42,21 +42,21 @@ batchLookUp <- function(x, nameOutput, interest, genelist, threshold = 100)
   for (i in 1:nrow(x))
   {
     # Get the info needed from the sample table
-    data_path <- sub("gitterData", "", paste0(as.character(x$location_results[i]),as.character(x$screen_name[i]), "_filtered_", threshold,".txt" ))
-    screenName <- as.character(x$screen_name[i])
+    data_path <- sub("gitterData", "", paste0(as.character(x$dataPath[i]),as.character(x$screenName[i]), "_filtered_", threshold,".txt" ))
+    screenName <- as.character(x$screenName[i])
     type <- as.character(x$type[i])
     mutant <- as.character(x$mutant[i])
-    assay_stress <- as.character(x$assay_stress[i])
+    assay_stress <- as.character(x$assayStress[i])
     media1 <- as.character(x$media1[i])
     media2 <- as.character(x$media2[i])
     media3 <- as.character(x$media3[i])
     media4 <- as.character(x$media4[i])
     media5 <- as.character(x$media5[i])
+    media <- as.numeric(x$numberMedia[i])
 
     # Open individual files
     filez <- read.csv(data_path, header = TRUE, stringsAsFactors = FALSE, sep = "\t")
     filez <- subset(filez, filez$gene != "#N/A")
-    media <- as.numeric(x$types_media[i])
 
     for (j in 2:media){
       if (interest == "ratio"){

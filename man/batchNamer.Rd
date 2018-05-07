@@ -2,7 +2,7 @@
 % Please edit documentation in R/batchNamer.R
 \name{batchNamer}
 \alias{batchNamer}
-\title{Renames files as they come from the colonie size analyzer}
+\title{Renames files as they come from the colonie size analyzer software}
 \usage{
 batchNamer(x, y)
 }
@@ -10,7 +10,7 @@ batchNamer(x, y)
 \item{x}{}
 }
 \description{
-Analyzes SGAs
+Renames file that are produced by colonie size analyzer software so the names are compatible with sgaMethods
 }
 \examples{
 batchNamer(screenTable, y)

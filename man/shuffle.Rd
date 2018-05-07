@@ -7,7 +7,7 @@
 shuffle(x, order.df, to.order)
 }
 \arguments{
-\item{x}{}
+\item{x}{dataframe that contains}
 }
 \description{
 Analyzes SGAs

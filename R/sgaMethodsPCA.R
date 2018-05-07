@@ -8,11 +8,11 @@
 #'
 #' @import ggfortify
 #'
-#' @examples quick.n.dirty(screenTable)
+#' @examples sgaMethodsPCA(screenTable)
 #'
 #' @export
 
-quick.n.dirtyPCA <- function(x)
+sgaMethodsPCA <- function(x)
 {
   to.PCA <- x
   row.names(to.PCA) <- to.PCA[,1]
@@ -31,7 +31,7 @@ quick.n.dirtyPCA <- function(x)
   # Prepare the labels
   species <- to.PCA
   species$labels <- row.names(species)
-  species$labels <- gsub("\\..*","",species$labels)
+  species$labels <- gsub("_[a-zA-Z0-9]*_[a-zA-Z0-9]*_[a-zA-Z0-9]*.[a-zA-Z0-9]*.[0-9]*$","", species$labels)
 
   # And plot the bad boy
   ir.pca <- prcomp(to.PCA)

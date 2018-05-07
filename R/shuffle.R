@@ -2,7 +2,7 @@
 #'
 #' @description Analyzes SGAs
 #'
-#' @param x
+#' @param x dataframe that contains
 #'
 #' @return NULL
 #'

@@ -18,20 +18,20 @@ batchScreenAnalysis <- function(x, borderEffectCorrection = TRUE, threshold = 10
   # Define the function
   f= function(y){
     # Extract necessary info from sample table
-    screenName = as.character(y["screen_name"])
+    screenName = as.character(y["screenName"])
     message(screenName)
-    libPlateNumb <- as.numeric(y["libPlateNumb"])
-    media <- as.numeric(y["types_media"])
-    workingDir <- as.character(y["location_results"])
+    libPlateNumb <- as.numeric(y["numberPlateInLibrary"])
+    media <- as.numeric(y["numberMedia"])
+    workingDir <- as.character(y["dataPath"])
     type <- as.character(y["type"])
     mutant <- as.character(y["mutant"])
-    assay_stress <- as.character(y["assay_stress"])
+    assay_stress <- as.character(y["assayStress"])
     media1 <- as.character(y["media1"])
     media2 <- as.character(y["media2"])
     media3 <- as.character(y["media3"])
     media4 <- as.character(y["media4"])
     media5 <- as.character(y["media5"])
-    info_path <- as.character(y["info_path"])
+    info_path <- as.character(y["infoPath"])
 
     setwd(workingDir)
 
@@ -119,7 +119,7 @@ batchScreenAnalysis <- function(x, borderEffectCorrection = TRUE, threshold = 10
 
       platemed2 <- plate_comb$med2
       dim(platemed2) <- c(24,16)
-      heatmap.2(t(platemed2),  main=paste(plate, "med2"), trace="none", key=T, col=pal, Rowv=F, Colv=F, na.color="grey", dendrogram="none")
+      #heatmap.2(t(platemed2),  main=paste(plate, "med2"), trace="none", key=T, col=pal, Rowv=F, Colv=F, na.color="grey", dendrogram="none")
 
       plateMED <- plate_comb$MEDnorm_med2
       plateMED[plateMED==Inf] <- 0
@@ -151,7 +151,7 @@ batchScreenAnalysis <- function(x, borderEffectCorrection = TRUE, threshold = 10
     #   plate_all_log2 <- subset (plate_all, select=c("mutID", "gene", "med1", "med2", "med3", "med4", "LOG2_med2", "LOG2_med3", "LOG2_med4"), mutID != "#N/A")
     # }
 
-    par(mfrow = c(2,2), mar=c(2,2,2,2), bg="white", col.axis="blue")
+    #par(mfrow = c(2,2), mar=c(2,2,2,2), bg="white", col.axis="blue")
     boxplot(med2~plate, data=plate_all_filter, outline=F, main="med2")
     boxplot(med1~plate, data=plate_all_filter, outline=F, main="med1")
     boxplot(ratio_med2_med1~plate, data=plate_all_filter,outline=F,  main="ratio med2/med1")
@@ -159,7 +159,7 @@ batchScreenAnalysis <- function(x, borderEffectCorrection = TRUE, threshold = 10
 
     if(media==3){
       #distribution of med2:med1 and med3:med1 filtered
-      par(mfrow = c(3,2), mar=c(2,2,2,2), col.axis="grey")
+      #par(mfrow = c(3,2), mar=c(2,2,2,2), col.axis="grey")
       hist(plate_all_filter$med1, breaks=100, col="yellow", xlim=c(0,1500), main="med1")
       hist(plate_all_filter$med1, breaks=100, col="yellow", xlim=c(0,1500), main="med1")
       hist(plate_all_filter$med2, breaks=100, col="red",  xlim=c(0,1500), main="med2")

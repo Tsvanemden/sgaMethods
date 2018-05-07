@@ -4,11 +4,11 @@
 #'
 #' @param x
 #'
-#' @examples corMatrix(screenTable)
+#' @examples sgaMethodsCorMatrix(screenTable)
 #'
 #' @export
 
-corMatrix <- function(x)
+sgaMethodsCorMatrix <- function(x)
 {
   # require(RColorBrewer)
   # require(ggplot2)
